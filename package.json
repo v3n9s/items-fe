@@ -1,7 +1,10 @@
 {
   "name": "items-fe",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "dev": "webpack serve --env ISDEV",
+    "build": "webpack"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@types/dotenv-webpack": "^7.0.3",
