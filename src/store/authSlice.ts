@@ -1,19 +1,8 @@
 import { Action, createSlice, Middleware, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '../types/user';
+import { UserAuthState } from '../types/user';
+import { ReplaceValuesWithNull } from '../types/utils';
 
-interface EmptyAuthState {
-  accessToken: null;
-  refreshToken: null;
-  user: null;
-}
-
-interface TruthyAuthState {
-  accessToken: string;
-  refreshToken: string;
-  user: User;
-}
-
-type AuthState = TruthyAuthState | EmptyAuthState;
+type AuthState = UserAuthState | ReplaceValuesWithNull<UserAuthState>;
 
 const setAuthInitialState = (auth: AuthState) => {
   localStorage.setItem('auth', JSON.stringify(auth));
@@ -34,7 +23,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: getAuthInitialState(),
   reducers: {
-    setAuth: (state, action: PayloadAction<TruthyAuthState>) => {
+    setAuth: (state, action: PayloadAction<UserAuthState>) => {
       return action.payload;
     },
     resetAuth: () => {
