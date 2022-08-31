@@ -6,7 +6,11 @@ export default {
       name: 'Імя',
       password: 'Пароль',
       repeatPassword: 'Паўтарыце пароль',
-      passwordsMustMatch: 'Паролі павінны супадаць'
+      passwordsMustMatch: 'Паролі павінны супадаць',
+      wrongCredentials: 'Няправільнае імя або пароль',
+      rightCredentials: 'Вы паспяхова ўвайшлі',
+      userAlreadyExist: 'Карыстальнік з імем "{{name}}" ужо існуе',
+      userRegistered: 'Карыстальнік быў паспяхова зарэгістраваны'
     },
     nav: {
       menu: 'Меню',

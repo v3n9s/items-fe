@@ -6,7 +6,11 @@ export default {
       name: 'Name',
       password: 'Password',
       repeatPassword: 'Repeat password',
-      passwordsMustMatch: 'Passwords must match'
+      passwordsMustMatch: 'Passwords must match',
+      wrongCredentials: 'Wrong name or password',
+      rightCredentials: 'You was successfully logged in',
+      userAlreadyExist: 'User with name "{{name}}" already exist',
+      userRegistered: 'User was successfully registered'
     },
     nav: {
       menu: 'Menu',
