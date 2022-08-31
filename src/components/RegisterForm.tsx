@@ -4,11 +4,15 @@ import React from 'react';
 import { useRegisterUserMutation } from '../api/auth';
 import AuthForm, { Field } from './AuthForm';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import routes from '../routes';
 
 const RegisterForm: React.FC = () => {
   const [registerUser, { isLoading }] = useRegisterUserMutation();
 
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -34,7 +38,11 @@ const RegisterForm: React.FC = () => {
       registerUser({
         name: fields.name,
         password: fields.password
-      });
+      }).unwrap()
+        .then(() => {
+          navigate(routes.login.path);
+        })
+        .catch(() => {});
     }
   });
 
