@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container, Row } from 'reactstrap';
+import { Container } from 'reactstrap';
 import { useGetUsersQuery } from '../api/user';
 import HandleLoadingAndError from './HandleLoadingAndError';
 import UserCard from './UserCard';
@@ -12,22 +12,18 @@ const UsersPage: React.FC = () => {
 
   return (
     <Container>
-      <Row
+      <div
         style={{
           marginTop: 10
         }}
       >
-        <h2
-          style={{
-            paddingLeft: 0
-          }}
-        >{t('users.users')}</h2>
-      </Row>
+        <h2>{t('users.users')}</h2>
+      </div>
       <HandleLoadingAndError
         isLoading={isLoading}
         isError={isError}
       >
-        <Row
+        <div
           style={{
             marginTop: 10,
             display: 'flex',
@@ -41,7 +37,7 @@ const UsersPage: React.FC = () => {
               <UserCard user={user} key={user.id} />
             ))
           }
-        </Row>
+        </div>
       </HandleLoadingAndError>
     </Container>
   );

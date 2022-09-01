@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Container, Row } from 'reactstrap';
+import { Container } from 'reactstrap';
 import { useGetCollectionsQuery } from '../api/collection';
 import { useGetUserQuery } from '../api/user';
 import CollectionCard from './CollectionCard';
@@ -22,30 +22,22 @@ const UserPage: React.FC = () => {
         isLoading={user.isLoading}
         isError={user.isError}
       >
-        <Row
+        <div
           style={{
             marginTop: 10
           }}
         >
-          <h2
-            style={{
-              paddingLeft: 0
-            }}
-          >{`${t('users.user')}: ${user.data?.name}`}</h2>
-        </Row>
+          <h2>{`${t('users.user')}: ${user.data?.name}`}</h2>
+        </div>
       </HandleLoadingAndError>
       <HandleLoadingAndError
         isLoading={collections.isLoading}
         isError={collections.isError}
       >
-        <Row>
-          <h2
-            style={{
-              paddingLeft: 0
-            }}
-          >{t('collections.collections')}:</h2>
-        </Row>
-        <Row
+        <div>
+          <h2>{t('collections.collections')}:</h2>
+        </div>
+        <div
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -57,7 +49,7 @@ const UserPage: React.FC = () => {
               <CollectionCard collection={collection} key={collection.id} />
             ))
           }
-        </Row>
+        </div>
       </HandleLoadingAndError>
     </Container>
   );
