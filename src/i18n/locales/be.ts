@@ -18,6 +18,7 @@ export default {
       close: 'Зачыніць'
     },
     users: {
+      user: 'Карыстальнік',
       users: 'Карыстальнікі'
     },
     validation: {

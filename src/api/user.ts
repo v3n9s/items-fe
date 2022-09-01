@@ -8,11 +8,19 @@ const usersApi = emptyBaseApi.injectEndpoints({
         url: '/users',
         method: 'GET'
       })
+    }),
+    getUser: builder.query<User, number>({
+      query: (id) => ({
+        url: `/users/${id}`,
+        method: 'GET'
+      })
     })
   })
 });
 
 export const {
   useGetUsersQuery,
-  useLazyGetUsersQuery
+  useLazyGetUsersQuery,
+  useGetUserQuery,
+  useLazyGetUserQuery
 } = usersApi;

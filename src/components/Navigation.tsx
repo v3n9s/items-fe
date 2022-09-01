@@ -45,11 +45,13 @@ const Navigation: React.FC = () => {
             onClick={toggleIsShowNav}
           >
             {
-              Object.values(routes).map(({ name, path }) => (
-                <NavItem key={path}>
-                  <NavLink tag={Link} to={path}>{t(name)}</NavLink>
-                </NavItem>
-              ))
+              Object.values(routes)
+                .filter((route) => route.name)
+                .map(({ name, path }) => (
+                  <NavItem key={path}>
+                    <NavLink tag={Link} to={path}>{t(name)}</NavLink>
+                  </NavItem>
+                ))
             }
           </Nav>
         </OffcanvasBody>

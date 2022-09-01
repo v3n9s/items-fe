@@ -18,6 +18,7 @@ export default {
       close: 'Close'
     },
     users: {
+      user: 'User',
       users: 'Users'
     },
     validation: {

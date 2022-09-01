@@ -10,6 +10,11 @@ const routes = {
   register: {
     name: 'auth.register',
     path: '/register'
+  },
+  user: {
+    name: '',
+    path: '/users/:userId',
+    createUrl: (userId: number) => `/users/${userId}`
   }
 } as const;
 
