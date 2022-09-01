@@ -58,13 +58,13 @@ const CustomForm: React.FC<CustomFormProps> = ({
           </FormGroup>
         ))
       }
-      <Button
+      {buttonText && <Button
         type='submit'
         disabled={isLoading}
       >
         {buttonText}
         {isLoading && <Spinner className='ms-2' type='border' size='sm' />}
-      </Button>
+      </Button>}
     </Form>
   );
 };
