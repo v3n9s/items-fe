@@ -13,8 +13,12 @@ export default {
       userRegistered: 'Карыстальнік быў паспяхова зарэгістраваны'
     },
     nav: {
+      home: 'Дадому',
       menu: 'Меню',
       close: 'Зачыніць'
+    },
+    users: {
+      users: 'Карыстальнікі'
     },
     validation: {
       required: 'Поле "{{field}}" з\'яўляецца абавязковым',
@@ -23,7 +27,8 @@ export default {
     utils: {
       characters_one: 'сімвал',
       characters_few: 'сімвала',
-      characters_many: 'сімвалаў'
+      characters_many: 'сімвалаў',
+      somethingWentWrong: 'Нешта пайшло не так'
     }
   }
 };

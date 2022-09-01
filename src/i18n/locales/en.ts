@@ -13,8 +13,12 @@ export default {
       userRegistered: 'User was successfully registered'
     },
     nav: {
+      home: 'Home',
       menu: 'Menu',
       close: 'Close'
+    },
+    users: {
+      users: 'Users'
     },
     validation: {
       required: 'Field "{{field}}" is required',
@@ -22,7 +26,8 @@ export default {
     },
     utils: {
       characters_one: 'character',
-      characters_other: 'characters'
+      characters_other: 'characters',
+      somethingWentWrong: 'Something went wrong'
     }
   }
 };

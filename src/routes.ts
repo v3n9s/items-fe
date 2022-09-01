@@ -1,4 +1,8 @@
 const routes = {
+  home: {
+    name: 'nav.home',
+    path: '/'
+  },
   login: {
     name: 'auth.login',
     path: '/login'
