@@ -10,14 +10,14 @@ export interface Field {
   type: InputType;
 }
 
-interface AuthFormProps {
+interface CustomFormProps {
   isLoading: boolean;
   formik: ReturnType<typeof useFormik<any>>;
   fields: Field[];
   buttonText: string;
 }
 
-const AuthForm: React.FC<AuthFormProps> = ({
+const CustomForm: React.FC<CustomFormProps> = ({
   isLoading = false,
   formik,
   fields,
@@ -69,4 +69,4 @@ const AuthForm: React.FC<AuthFormProps> = ({
   );
 };
 
-export default AuthForm;
+export default CustomForm;

@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Container, Row } from 'reactstrap';
 import { useGetUsersQuery } from '../api/user';
 import HandleLoadingAndError from './HandleLoadingAndError';
-import User from './User';
+import UserCard from './UserCard';
 
-const Users: React.FC = () => {
+const UsersPage: React.FC = () => {
   const { data, isLoading, isError } = useGetUsersQuery();
 
   const { t } = useTranslation();
@@ -38,7 +38,7 @@ const Users: React.FC = () => {
         >
           {
             data?.map((user) => (
-              <User user={user} key={user.id} />
+              <UserCard user={user} key={user.id} />
             ))
           }
         </Row>
@@ -47,4 +47,4 @@ const Users: React.FC = () => {
   );
 }
 
-export default Users;
+export default UsersPage;

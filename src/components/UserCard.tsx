@@ -4,11 +4,11 @@ import { Card, CardBody } from 'reactstrap';
 import routes from '../routes';
 import { User } from '../types/user';
 
-interface UserProps {
+interface UserCardProps {
   user: User;
 }
 
-const User: React.FC<UserProps> = ({ user }) => {
+const UserCard: React.FC<UserCardProps> = ({ user }) => {
   return (
     <Card
       style={{
@@ -33,4 +33,4 @@ const User: React.FC<UserProps> = ({ user }) => {
   );
 }
 
-export default User;
+export default UserCard;
