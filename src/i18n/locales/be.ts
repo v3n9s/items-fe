@@ -21,6 +21,10 @@ export default {
       user: 'Карыстальнік',
       users: 'Карыстальнікі'
     },
+    collections: {
+      collection: 'Калекцыя',
+      collections: 'Калекцыі'
+    },
     validation: {
       required: 'Поле "{{field}}" з\'яўляецца абавязковым',
       min: 'Поле "{{field}}" павінна быць ня менш за {{min}} {{chars}}'

@@ -21,6 +21,10 @@ export default {
       user: 'User',
       users: 'Users'
     },
+    collections: {
+      collection: 'Collection',
+      collections: 'Collections'
+    },
     validation: {
       required: 'Field "{{field}}" is required',
       min: 'Field "{{field}}" must be at least {{min}} {{chars}} long'
