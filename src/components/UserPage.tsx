@@ -1,38 +1,35 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Container, Row, Spinner } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import { useGetUserQuery } from '../api/user';
-import SomethingWentWrong from './SomethingWentWrong';
+import HandleLoadingAndError from './HandleLoadingAndError';
 
 const UserPage: React.FC = () => {
   const { userId } = useParams();
 
-  const { data, isLoading, isSuccess } = useGetUserQuery(+userId!);
+  const { data, isLoading, isError } = useGetUserQuery(+userId!);
 
   const { t } = useTranslation();
 
   return (
     <Container>
-      {
-        isLoading
-          ? <Spinner />
-          : isSuccess
-            ? (
-              <Row
-                style={{
-                  marginTop: 10
-                }}
-              >
-                <h2
-                  style={{
-                    paddingLeft: 0
-                  }}
-                >{`${t('users.user')}: ${data?.name}`}</h2>
-              </Row>
-            )
-            : <SomethingWentWrong />
-      }
+      <HandleLoadingAndError
+        isLoading={isLoading}
+        isError={isError}
+      >
+        <Row
+          style={{
+            marginTop: 10
+          }}
+        >
+          <h2
+            style={{
+              paddingLeft: 0
+            }}
+          >{`${t('users.user')}: ${data?.name}`}</h2>
+        </Row>
+      </HandleLoadingAndError>
     </Container>
   );
 }

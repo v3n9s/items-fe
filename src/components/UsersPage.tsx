@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Container, Row, Spinner } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import { useGetUsersQuery } from '../api/user';
-import SomethingWentWrong from './SomethingWentWrong';
+import HandleLoadingAndError from './HandleLoadingAndError';
 import User from './User';
 
 const Users: React.FC = () => {
-  const { data, isLoading, isSuccess } = useGetUsersQuery();
+  const { data, isLoading, isError } = useGetUsersQuery();
 
   const { t } = useTranslation();
 
@@ -23,29 +23,26 @@ const Users: React.FC = () => {
           }}
         >{t('users.users')}</h2>
       </Row>
-      {
-        isLoading
-          ? <Spinner />
-          : isSuccess
-            ? (
-                <Row
-                  style={{
-                    marginTop: 10,
-                    display: 'flex',
-                    gap: 10,
-                    justifyContent: 'center',
-                    flexWrap: 'wrap'
-                  }}
-                >
-                  {
-                    data?.map((user) => (
-                      <User user={user} key={user.id} />
-                    ))
-                  }
-                </Row>
-            )
-            : <SomethingWentWrong />
-      }
+      <HandleLoadingAndError
+        isLoading={isLoading}
+        isError={isError}
+      >
+        <Row
+          style={{
+            marginTop: 10,
+            display: 'flex',
+            gap: 10,
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}
+        >
+          {
+            data?.map((user) => (
+              <User user={user} key={user.id} />
+            ))
+          }
+        </Row>
+      </HandleLoadingAndError>
     </Container>
   );
 }
