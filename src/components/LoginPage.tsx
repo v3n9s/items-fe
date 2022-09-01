@@ -58,6 +58,10 @@ const LoginPage: React.FC = () => {
       formik={formik}
       fields={fields}
       buttonText={t('auth.login')}
+      style={{
+        maxWidth: 425,
+        marginTop: 8
+      }}
     />
   );
 };

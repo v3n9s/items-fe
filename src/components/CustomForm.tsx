@@ -15,13 +15,15 @@ interface CustomFormProps {
   formik: ReturnType<typeof useFormik<any>>;
   fields: Field[];
   buttonText: string;
+  style?: React.CSSProperties;
 }
 
 const CustomForm: React.FC<CustomFormProps> = ({
   isLoading = false,
   formik,
   fields,
-  buttonText
+  buttonText,
+  style
 }) => {
   const { t } = useTranslation();
 
@@ -32,10 +34,8 @@ const CustomForm: React.FC<CustomFormProps> = ({
   return (
     <Form
       onSubmit={formik.handleSubmit}
-      className='container-sm mt-2'
-      style={{
-        maxWidth: 425
-      }}
+      className='container-sm'
+      style={style}
     >
       {
         fields.map(({ label, name, type }) => (

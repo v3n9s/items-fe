@@ -70,6 +70,10 @@ const RegisterPage: React.FC = () => {
       formik={formik}
       fields={fields}
       buttonText={t('auth.register')}
+      style={{
+        maxWidth: 425,
+        marginTop: 8
+      }}
     />
   );
 };
