@@ -4,11 +4,15 @@ import React from 'react';
 import { useLoginUserMutation } from '../api/auth';
 import AuthForm, { Field } from './AuthForm';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import routes from '../routes';
 
 const LoginForm: React.FC = () => {
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -26,7 +30,12 @@ const LoginForm: React.FC = () => {
         .min(3)
     }),
     onSubmit: (fields) => {
-      loginUser(fields);
+      loginUser(fields)
+        .unwrap()
+        .then(() => {
+          navigate(routes.home.path);
+        })
+        .catch(() => {});
     }
   });
 
