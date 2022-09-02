@@ -24,7 +24,8 @@ export default {
     fields: {
       name: 'Імя',
       password: 'Пароль',
-      repeatPassword: 'Паўтарыце пароль'
+      repeatPassword: 'Паўтарыце пароль',
+      description: 'Апісанне'
     },
     collections: {
       collection: 'Калекцыя',

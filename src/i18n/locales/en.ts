@@ -24,7 +24,8 @@ export default {
     fields: {
       name: 'Name',
       password: 'Password',
-      repeatPassword: 'Repeat password'
+      repeatPassword: 'Repeat password',
+      description: 'Description'
     },
     collections: {
       collection: 'Collection',
