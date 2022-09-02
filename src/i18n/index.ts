@@ -4,7 +4,7 @@ import en from './locales/en';
 import be from './locales/be';
 import { setLocale } from 'yup';
 
-i18next.on('languageChanged', () => {
+i18next.on('languageChanged', (lng) => {
   setLocale({
     mixed: {
       required: ({ path }) => t('validation.required', { field: t(`fields.${path}`) })
@@ -17,7 +17,11 @@ i18next.on('languageChanged', () => {
       })
     }
   })
+
+  localStorage.setItem('lng', lng);
 });
+
+export const supportedLngs = ['en', 'be'] as const;
 
 i18next
   .use(initReactI18next)
@@ -26,9 +30,9 @@ i18next
       en,
       be
     },
-    lng: 'en',
+    lng: localStorage.getItem('lng') || 'en',
     fallbackLng: 'en',
-    supportedLngs: ['en', 'be'],
+    supportedLngs,
     interpolation: {
       escapeValue: false
     }
