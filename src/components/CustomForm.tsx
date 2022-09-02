@@ -14,7 +14,7 @@ interface CustomFormProps {
   isLoading: boolean;
   formik: ReturnType<typeof useFormik<any>>;
   fields: Field[];
-  buttonText: string;
+  buttonText?: string | undefined;
   style?: React.CSSProperties;
 }
 
