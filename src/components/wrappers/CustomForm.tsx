@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
 import { InputType } from 'reactstrap/types/lib/Input';
-import ButtonWithLoading from './ButtonWithLoading';
+import ButtonWithLoading from '../common/ButtonWithLoading';
 
 export interface Field {
   label: string;

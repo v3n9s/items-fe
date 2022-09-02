@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import ButtonWithLoading from './ButtonWithLoading';
+import ButtonWithLoading from '../common/ButtonWithLoading';
 
 interface CustomModalProps {
   title: string;

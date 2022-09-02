@@ -1,6 +1,6 @@
 import React from 'react';
 import { Spinner } from 'reactstrap';
-import SomethingWentWrong from './SomethingWentWrong';
+import SomethingWentWrong from '../common/SomethingWentWrong';
 
 interface HandleLoadingAndErrorProps {
   isLoading: boolean;

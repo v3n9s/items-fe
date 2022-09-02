@@ -2,9 +2,9 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useCreateCollectionMutation } from '../api/collection';
-import CustomForm, { Field } from './CustomForm';
-import CustomModal from './CustomModal';
+import { useCreateCollectionMutation } from '../../api/collection';
+import CustomForm, { Field } from '../wrappers/CustomForm';
+import CustomModal from '../wrappers/CustomModal';
 
 interface CollectionModalProps {
   isOpen: boolean;

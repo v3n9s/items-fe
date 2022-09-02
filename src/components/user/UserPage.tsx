@@ -2,12 +2,12 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Button, Container } from 'reactstrap';
-import { useGetUserQuery } from '../api/user';
-import { useAppSelector } from '../hooks';
-import { canManipulateSelectorCreator } from '../store/authSlice';
-import CollectionList from './CollectionList';
-import CollectionModal from './CollectionModal';
-import HandleLoadingAndError from './HandleLoadingAndError';
+import { useGetUserQuery } from '../../api/user';
+import { useAppSelector } from '../../hooks';
+import { canManipulateSelectorCreator } from '../../store/authSlice';
+import CollectionList from '../collection/CollectionList';
+import CollectionModal from '../collection/CollectionModal';
+import HandleLoadingAndError from '../wrappers/HandleLoadingAndError';
 
 const UserPage: React.FC = () => {
   const { userId } = useParams();

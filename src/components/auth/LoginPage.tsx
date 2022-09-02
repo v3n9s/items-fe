@@ -1,11 +1,11 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import React from 'react';
-import { useLoginUserMutation } from '../api/auth';
-import CustomForm, { Field } from './CustomForm';
+import { useLoginUserMutation } from '../../api/auth';
+import CustomForm, { Field } from '../wrappers/CustomForm';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import routes from '../routes';
+import routes from '../../routes';
 
 const LoginPage: React.FC = () => {
   const [loginUser, { isLoading }] = useLoginUserMutation();

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
-import { useGetUsersQuery } from '../api/user';
-import HandleLoadingAndError from './HandleLoadingAndError';
+import { useGetUsersQuery } from '../../api/user';
+import HandleLoadingAndError from '../wrappers/HandleLoadingAndError';
 import UserCard from './UserCard';
 
 const UsersPage: React.FC = () => {

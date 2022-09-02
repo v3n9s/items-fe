@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetCollectionsQuery } from '../api/collection';
+import { useGetCollectionsQuery } from '../../api/collection';
 import CollectionCard from './CollectionCard';
-import HandleLoadingAndError from './HandleLoadingAndError';
+import HandleLoadingAndError from '../wrappers/HandleLoadingAndError';
 
 const CollectionList: React.FC = () => {
   const { userId } = useParams();

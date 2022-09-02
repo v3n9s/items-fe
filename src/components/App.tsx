@@ -2,11 +2,11 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import routes from '../routes';
 import Alerts from './Alerts';
-import LoginPage from './LoginPage';
+import LoginPage from './auth/LoginPage';
 import Navigation from './Navigation';
-import RegisterPage from './RegisterPage';
-import UserPage from './UserPage';
-import UsersPage from './UsersPage';
+import RegisterPage from './auth/RegisterPage';
+import UserPage from './user/UserPage';
+import UsersPage from './user/UsersPage';
 
 const App: React.FC = () => {
   return (

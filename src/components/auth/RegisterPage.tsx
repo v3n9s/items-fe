@@ -1,11 +1,11 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import React from 'react';
-import { useRegisterUserMutation } from '../api/auth';
-import CustomForm, { Field } from './CustomForm';
+import { useRegisterUserMutation } from '../../api/auth';
+import CustomForm, { Field } from '../wrappers/CustomForm';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import routes from '../routes';
+import routes from '../../routes';
 
 const RegisterPage: React.FC = () => {
   const [registerUser, { isLoading }] = useRegisterUserMutation();

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody } from 'reactstrap';
-import routes from '../routes';
-import { User } from '../types/user';
+import routes from '../../routes';
+import { User } from '../../types/user';
 
 interface UserCardProps {
   user: User;
