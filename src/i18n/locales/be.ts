@@ -21,6 +21,11 @@ export default {
       user: 'Карыстальнік',
       users: 'Карыстальнікі'
     },
+    fields: {
+      name: 'Імя',
+      password: 'Пароль',
+      repeatPassword: 'Паўтарыце пароль'
+    },
     collections: {
       collection: 'Калекцыя',
       collections: 'Калекцыі'

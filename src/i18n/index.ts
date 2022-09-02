@@ -7,7 +7,7 @@ import { setLocale } from 'yup';
 i18next.on('languageChanged', () => {
   setLocale({
     mixed: {
-      required: ({ path }) => t('validation.required', { field: t(`auth.${path}`) })
+      required: ({ path }) => t('validation.required', { field: t(`fields.${path}`) })
     },
     string: {
       min: ({ path, min }) => t('validation.min', {

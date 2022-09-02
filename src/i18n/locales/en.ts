@@ -21,6 +21,11 @@ export default {
       user: 'User',
       users: 'Users'
     },
+    fields: {
+      name: 'Name',
+      password: 'Password',
+      repeatPassword: 'Repeat password'
+    },
     collections: {
       collection: 'Collection',
       collections: 'Collections'
