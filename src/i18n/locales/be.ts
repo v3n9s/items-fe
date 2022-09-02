@@ -31,9 +31,11 @@ export default {
       collection: 'Калекцыя',
       collections: 'Калекцыі'
     },
-    modal: {
+    common: {
       create: 'Стварыць',
-      cancel: 'Адмена'
+      cancel: 'Адмена',
+      update: 'Абнавіць',
+      delete: 'Выдаліць'
     },
     validation: {
       required: 'Поле "{{field}}" з\'яўляецца абавязковым',

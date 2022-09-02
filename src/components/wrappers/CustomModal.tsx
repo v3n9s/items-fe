@@ -39,13 +39,13 @@ const CustomModal: React.FC<CustomModalProps> = ({
           onClick={formik.submitForm}
           isLoading={isLoading}
         >
-          {t('modal.create')}
+          {t('common.create')}
         </ButtonWithLoading>
         <Button
           onClick={toggleIsModalOpen}
           disabled={isLoading}
         >
-          {t('modal.cancel')}
+          {t('common.cancel')}
         </Button>
       </ModalFooter>
     </Modal>

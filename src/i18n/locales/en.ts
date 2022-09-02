@@ -31,9 +31,11 @@ export default {
       collection: 'Collection',
       collections: 'Collections'
     },
-    modal: {
+    common: {
       create: 'Create',
-      cancel: 'Cancel'
+      cancel: 'Cancel',
+      update: 'Update',
+      delete: 'Delete'
     },
     validation: {
       required: 'Field "{{field}}" is required',

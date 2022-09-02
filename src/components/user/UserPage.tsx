@@ -51,7 +51,7 @@ const UserPage: React.FC = () => {
             <div className='text-end mb-2'>
               <Button
                 onClick={toggleIsModalOpen}
-              >{t('modal.create')}</Button>
+              >{t('common.create')}</Button>
             </div>
           )
         }
