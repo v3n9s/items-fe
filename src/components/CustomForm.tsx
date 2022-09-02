@@ -1,8 +1,9 @@
 import { useFormik } from 'formik';
 import React, { useEffect } from 'react';
-import { Button, Form, FormFeedback, FormGroup, Input, Label, Spinner } from 'reactstrap';
+import { Form, FormFeedback, FormGroup, Input, Label } from 'reactstrap';
 import { useTranslation } from 'react-i18next';
 import { InputType } from 'reactstrap/types/lib/Input';
+import ButtonWithLoading from './ButtonWithLoading';
 
 export interface Field {
   label: string;
@@ -59,13 +60,14 @@ const CustomForm: React.FC<CustomFormProps> = ({
           </FormGroup>
         ))
       }
-      {buttonText && <Button
-        type='submit'
-        disabled={isLoading}
-      >
-        {buttonText}
-        {isLoading && <Spinner className='ms-2' type='border' size='sm' />}
-      </Button>}
+      {buttonText && (
+        <ButtonWithLoading
+          type='submit'
+          isLoading={isLoading}
+        >
+          {buttonText}
+        </ButtonWithLoading>
+      )}
     </Form>
   );
 };
