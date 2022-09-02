@@ -1,4 +1,5 @@
-import { Action, createSlice, Middleware, PayloadAction } from '@reduxjs/toolkit';
+import { Action, createSelector, createSlice, Middleware, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '.';
 import { UserAuthState } from '../types/user';
 import { ReplaceValuesWithNull } from '../types/utils';
 
@@ -44,6 +45,11 @@ export const authMiddleware: Middleware = () => (next) => (action: Action) => {
   }
   return next(action);
 }
+
+export const canManipulateSelectorCreator = (userId: number) => createSelector(
+  (state: RootState) => state.auth,
+  (auth) => auth.user?.isAdmin || auth.user?.id === userId
+);
 
 export const { setAuth, resetAuth } = authSlice.actions;
 
