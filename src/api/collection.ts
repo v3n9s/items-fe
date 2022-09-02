@@ -46,6 +46,26 @@ const collectionApi = emptyBaseApi.injectEndpoints({
           )
         } catch(e) {}
       }
+    }),
+    deleteCollection: builder.mutation<null, Pick<Collection, 'id'> & { userId: number }>({
+      query: ({ id }) => ({
+        url: `/collections/${id}`,
+        method: 'DELETE'
+      }),
+      onQueryStarted: async ({ id: collectionId, userId }, { dispatch, queryFulfilled }) => {
+        try {
+          await queryFulfilled;
+          dispatch(
+            collectionApi.util.updateQueryData(
+              'getCollections',
+              userId,
+              (draft) => {
+                return draft.filter(({ id }) => id !== collectionId)
+              }
+            )
+          );
+        } catch (e) {}
+      }
     })
   })
 });
@@ -53,5 +73,6 @@ const collectionApi = emptyBaseApi.injectEndpoints({
 export const {
   useGetCollectionsQuery,
   useLazyGetCollectionsQuery,
-  useCreateCollectionMutation
+  useCreateCollectionMutation,
+  useDeleteCollectionMutation
 } = collectionApi;
