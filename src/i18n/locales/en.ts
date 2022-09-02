@@ -30,6 +30,10 @@ export default {
       collection: 'Collection',
       collections: 'Collections'
     },
+    modal: {
+      create: 'Create',
+      cancel: 'Cancel'
+    },
     validation: {
       required: 'Field "{{field}}" is required',
       min: 'Field "{{field}}" must be at least {{min}} {{chars}} long'

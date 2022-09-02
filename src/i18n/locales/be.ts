@@ -30,6 +30,10 @@ export default {
       collection: 'Калекцыя',
       collections: 'Калекцыі'
     },
+    modal: {
+      create: 'Стварыць',
+      cancel: 'Адмена'
+    },
     validation: {
       required: 'Поле "{{field}}" з\'яўляецца абавязковым',
       min: 'Поле "{{field}}" павінна быць ня менш за {{min}} {{chars}}'
