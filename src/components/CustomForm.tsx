@@ -47,6 +47,7 @@ const CustomForm: React.FC<CustomFormProps> = ({
             <Input
               name={name}
               type={type}
+              disabled={isLoading}
               value={formik.values[name]}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
