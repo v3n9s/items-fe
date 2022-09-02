@@ -18,7 +18,7 @@ const CollectionList: React.FC = () => {
         style={{
           marginBottom: 8,
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'column-reverse',
           gap: 10
         }}
       >
