@@ -47,6 +47,36 @@ const collectionApi = emptyBaseApi.injectEndpoints({
         } catch(e) {}
       }
     }),
+    updateCollection: builder.mutation<Collection, Collection & { userId: number }>({
+      query: ({ id, userId, ...collection }) => ({
+        url: `/collections/${id}`,
+        method: 'PATCH',
+        body: collection
+      }),
+      onQueryStarted: async ({ id: collectionId, userId }, { dispatch, queryFulfilled }) => {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(
+            collectionApi.util.updateQueryData(
+              'getCollections',
+              userId,
+              (draft) => {
+                return draft.map((collection) => {
+                  if (collection.id === collectionId) {
+                    return {
+                      id: data.id,
+                      name: data.name,
+                      description: data.description
+                    };
+                  }
+                  return collection;
+                });
+              }
+            )
+          );
+        } catch (e) {}
+      }
+    }),
     deleteCollection: builder.mutation<null, Pick<Collection, 'id'> & { userId: number }>({
       query: ({ id }) => ({
         url: `/collections/${id}`,
@@ -74,5 +104,6 @@ export const {
   useGetCollectionsQuery,
   useLazyGetCollectionsQuery,
   useCreateCollectionMutation,
+  useUpdateCollectionMutation,
   useDeleteCollectionMutation
 } = collectionApi;
