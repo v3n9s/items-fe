@@ -7,12 +7,14 @@ import Navigation from './Navigation';
 import RegisterPage from './auth/RegisterPage';
 import UserPage from './user/UserPage';
 import UsersPage from './user/UsersPage';
+import CollectionModal from './collection/CollectionModal';
 
 const App: React.FC = () => {
   return (
     <>
       <Alerts />
       <Navigation />
+      <CollectionModal />
       <Routes>
         <Route path={routes.home.path} element={<UsersPage />} />
         <Route path={routes.login.path} element={<LoginPage />} />

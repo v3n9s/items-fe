@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Card, CardBody, CardText, CardTitle } from 'reactstrap';
 import { useDeleteCollectionMutation } from '../../api/collection';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { canManipulateSelectorCreator } from '../../store/authSlice';
+import { setValues, toggleIsOpen } from '../../store/collectionModalSlice';
 import { Collection } from '../../types/collection';
 import ButtonWithLoading from '../common/ButtonWithLoading';
 
@@ -16,6 +17,13 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
   collection
 }) => {
   const { t } = useTranslation();
+
+  const dispatch = useAppDispatch();
+
+  const openModal = useCallback(() => {
+    dispatch(toggleIsOpen(true));
+    dispatch(setValues({...collection}));
+  }, [collection]);
 
   const { userId } = useParams();
 
@@ -53,9 +61,17 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
             <div
               style={{
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                gap: 10
               }}
             >
+              <ButtonWithLoading
+                color='warning'
+                onClick={openModal}
+                isLoading={false}
+              >
+                {t('common.update')}
+              </ButtonWithLoading>
               <ButtonWithLoading
                 color='danger'
                 onClick={deleteCollectionCallback}
