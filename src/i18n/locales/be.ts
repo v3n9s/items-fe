@@ -3,6 +3,9 @@ export default {
     auth: {
       login: 'Увайсці',
       register: 'Зарэгістравацца',
+      logout: 'Выйсці',
+      logoutConfirm: 'Вы ўпэўнены, што хочаце выйсці ?',
+      loggedOutSuccess: 'Вы паспяхова выйшлі',
       name: 'Імя',
       password: 'Пароль',
       repeatPassword: 'Паўтарыце пароль',

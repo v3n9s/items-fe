@@ -1,6 +1,6 @@
 import { emptyBaseApi } from '.';
 import { showAlertFor } from '../store/alertsSlice';
-import { setAuth } from '../store/authSlice';
+import { resetAuth, setAuth } from '../store/authSlice';
 import { UserAuthData, UserAuthState } from '../types/user';
 
 const authApi = emptyBaseApi.injectEndpoints({
@@ -62,11 +62,33 @@ const authApi = emptyBaseApi.injectEndpoints({
           error: response.error
         };
       }
+    }),
+    logout: builder.mutation<null, void>({
+      queryFn: async (arg, { dispatch }, extra, baseQuery) => {
+        const response = await baseQuery({
+          url: '/auth/logout',
+          method: 'DELETE'
+        });
+        if (response.data === null) {
+          dispatch(showAlertFor({
+            message: 'auth.loggedOutSuccess',
+            color: 'success'
+          }));
+          dispatch(resetAuth());
+          return {
+            data: null
+          };
+        }
+        return {
+          error: response.error
+        };
+      }
     })
   })
 });
 
 export const {
   useLoginUserMutation,
-  useRegisterUserMutation
+  useRegisterUserMutation,
+  useLogoutMutation
 } = authApi;

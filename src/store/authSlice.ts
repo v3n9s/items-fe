@@ -51,6 +51,8 @@ export const canManipulateSelectorCreator = (userId: number) => createSelector(
   (auth) => auth.user?.isAdmin || auth.user?.id === userId
 );
 
+export const isLoggedInSelector = (state: RootState) => state.auth.accessToken;
+
 export const { setAuth, resetAuth } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

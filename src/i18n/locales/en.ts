@@ -3,6 +3,9 @@ export default {
     auth: {
       login: 'Login',
       register: 'Register',
+      logout: 'Logout',
+      logoutConfirm: 'Are you sure you want to logout ?',
+      loggedOutSuccess: 'Successfully logged out',
       name: 'Name',
       password: 'Password',
       repeatPassword: 'Repeat password',

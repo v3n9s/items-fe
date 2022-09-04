@@ -2,17 +2,44 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Button, ButtonGroup, Nav, NavItem, NavLink, Offcanvas, OffcanvasBody } from 'reactstrap';
+import { useLogoutMutation } from '../api/auth';
+import { useAppSelector } from '../hooks';
 import { supportedLngs } from '../i18n';
 import routes from '../routes';
+import { isLoggedInSelector } from '../store/authSlice';
 
 const Navigation: React.FC = () => {
   const { t, i18n } = useTranslation();
+
+  const [logout] = useLogoutMutation();
+
+  const logoutUser = useCallback(() => {
+    if (confirm(t('auth.logoutConfirm'))) {
+      logout();
+      toggleIsShowNav();
+    }
+  }, []);
 
   const [isShowNav, setIsShowNav] = useState(false);
 
   const toggleIsShowNav = useCallback(() => {
     setIsShowNav((prev) => !prev);
   }, [isShowNav]);
+
+  const routesToShow = Object.values(routes).filter((route) => route.name);
+
+  const isLoggedIn = useAppSelector(isLoggedInSelector);
+
+  const isAllowedRoute = useCallback(
+    (route: typeof routes[keyof typeof routes]) => {
+      return (
+        !isLoggedIn
+        || route !== routes.login
+        && route !== routes.register
+      );
+    },
+    [isLoggedIn]
+  );
 
   return (
     <>
@@ -49,16 +76,32 @@ const Navigation: React.FC = () => {
             style={{
               fontSize: '24px'
             }}
-            onClick={toggleIsShowNav}
           >
             {
-              Object.values(routes)
-                .filter((route) => route.name)
+              routesToShow
+                .filter((route) => isAllowedRoute(route))
                 .map(({ name, path }) => (
-                  <NavItem key={path}>
+                  <NavItem
+                    key={path}
+                    onClick={toggleIsShowNav}
+                  >
                     <NavLink tag={Link} to={path}>{t(name)}</NavLink>
                   </NavItem>
                 ))
+            }
+            {
+              isLoggedIn && (
+                <NavItem>
+                  <NavLink
+                    style={{
+                      cursor: 'pointer'
+                    }}
+                    onClick={logoutUser}
+                  >
+                    {t('auth.logout')}
+                  </NavLink>
+                </NavItem>
+              )
             }
           </Nav>
           <div
