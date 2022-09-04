@@ -13,7 +13,7 @@ const ButtonWithLoading: React.FC<ButtonWithLoadingProps> = ({
 }) => {
   return (
     <Button
-      disabled={isLoading}
+      disabled={isLoading || props.disabled}
       {...props}
     >
       {children}
